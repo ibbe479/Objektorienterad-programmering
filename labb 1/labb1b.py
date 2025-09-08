@@ -127,6 +127,8 @@ def display_contacts():
             print(f"  sammanfattnig: {info['summary']}")
             print("-" * 20)
 
+def söka():
+    pass
 
 def main():
     while True:

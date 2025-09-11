@@ -16,6 +16,8 @@ class bilar:
             return f"bilen du äger är inte på just nu"
 
 min_bil= bilar ( "ferari", True)
+
+print(min_bil)
 print(min_bil.bilen_du_har())
 print(min_bil.är_bilen_på_eller_av())
 

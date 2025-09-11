@@ -59,7 +59,7 @@ print(Doug.is_dog_asleep())
 print(Doug.wake_up_dog())
 print(Doug.make_dog_go_to_sleep())
 print(Doug.show_fur_and_color())
-
+###########################################################################
 hund={
     "namn": "Doug",
     "ras":"pug",

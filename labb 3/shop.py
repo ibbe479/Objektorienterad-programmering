@@ -36,9 +36,9 @@ class shop:
                 
             elif val == "4":
                 print("print uppdatera priset")
-                namn=input("vad heter produkten du vill uppdatrera priset på: ")
+                prod_nr=input("vad är produckt nummret: ")
                 nya_priset=input("vad är det nya priset du vill lägga in ")
-                self.collection.uppdate_price(namn, nya_priset)
+                self.collection.uppdate_price(prod_nr, nya_priset)
             elif val == "5":
                 print("hejdå")
                 break

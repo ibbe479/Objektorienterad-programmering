@@ -1,8 +1,8 @@
 from book_inventory import Book_inventory
 
-class shop: 
+class Book_store: 
     def __init__(self):
-        self.collection = inventory()
+        self.__books_invetory = Book_inventory()
 
     def show_menu(self):
         print("\nMenu:")
@@ -20,25 +20,25 @@ class shop:
 
             if val=="1":
                 print("lägg till en produkt")
-                prod_nr=input("vad är produkt nummret? ")
-                namnet= input("vad heter produkten? ")
-                priset= input ("vad kostar varan? ")
-                self.collection.add_product(prod_nr, namnet, priset)
+                isbn=input("vad är är ISBN nummret för boken?:" )
+                titel=input("vad heter boken?: ")
+                author=input("vad heter författaren?: ")
+                price=input("vad kostar boken?: ")
+
+                self.__books_invetory.add_book(isbn,titel,author,price)
 
             elif val == "2":
                 print("visar produkterna")
-                self.collection.show_all()
+                self.__books_invetory.show_all()
 
             elif val == "3":
                 print("raderar en produkt")
-                art_nummer=input("skriv in artikelnummret du vill radera: ")
-                self.collection.delete(art_nummer)
+                isbn=input("skriv in artikelnummret du vill radera: ")
+                
                 
             elif val == "4":
                 print("print uppdatera priset")
-                prod_nr=input("vad är produckt nummret: ")
-                nya_priset=input("vad är det nya priset du vill lägga in ")
-                self.collection.uppdate_price(prod_nr, nya_priset)
+                
             elif val == "5":
                 print("hejdå")
                 break
@@ -49,8 +49,7 @@ class shop:
 
 
 if __name__ == "__main__":
-    program = shop()
+    program = Book_store()
     program.run()
 
 
-#https://drive.google.com/file/d/1Ax5CR2i-8XqcKOj8ziyVi_0k-F7as7Tj/view?usp=sharing

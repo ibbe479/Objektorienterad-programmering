@@ -5,14 +5,6 @@ class product:
         self.price = price
 
     
-    def see_product_nr(self): 
-        return self.product_nummber
-    
-    def see_name(self):
-        return  self.name
-    
-    def see_price(self):
-        return self.price
     
     def __str__(self):
         return f"the product nummber is {self.product_nummber} and the name for the product is {self.name} and the price is {self.price}"

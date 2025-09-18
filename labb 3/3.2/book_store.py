@@ -6,11 +6,11 @@ class Book_store:
 
     def show_menu(self):
         print("\nMenu:")
-        print("1. Add product")
-        print("2. Show products")
-        print("3. Remove product")
-        print("4. Update price")
-        print("5. Exit")
+        print("1. Lägg till en bok")
+        print("2. visa böker")
+        print("3. uppadtera priset på en bok")
+        print("4. ta bort en bok ")
+        print("5. avsluta programmet")
 
     def run(self):
         while True:
@@ -32,12 +32,15 @@ class Book_store:
                 self.__books_invetory.show_all()
 
             elif val == "3":
-                print("raderar en produkt")
-                isbn=input("skriv in artikelnummret du vill radera: ")
-                
+                print("print uppdatera priset")
+                isbn=input("skriv in artikelnummret på boken du vill ändra priset på: ")
+                nya_priset = input("vad är det nya priset:? ")
+                self.__books_invetory.uppdate(isbn, nya_priset)
                 
             elif val == "4":
-                print("print uppdatera priset")
+                print("raderar en bok")
+                isbn=input("skriv in isbn nummret på boken du vill radera: ")
+                self.__books_invetory.delete(isbn)
                 
             elif val == "5":
                 print("hejdå")

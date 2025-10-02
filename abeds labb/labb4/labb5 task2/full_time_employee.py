@@ -7,8 +7,8 @@ class Full_time_employee(Employee):
         self.salary = salary
         self.benefits = benefits
 
-    def calculate_pay():
-        pass
+    def calculate_pay(self):
+        return self.salary + self.benefits
         
     def __str__(self):
         return super().__str__()

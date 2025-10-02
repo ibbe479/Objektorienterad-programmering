@@ -13,4 +13,4 @@ class Employee:
         pass
 
     def __str__(self):
-        pass
+        return f"ID: {self.emp_id}, Name: {self.name}, Email: {self.email}, Department: {self.department}"

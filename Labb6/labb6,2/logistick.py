@@ -1,12 +1,7 @@
 from abc import ABC, abstractmethod
 
-class Logistick:
-    def __init__(self, size, weight, destination, transport_type):
-        self.size = size
-        self.wheight = weight
-        self.destination = destination
-        self.transport_type = transport_type
-
+class Logistick(ABC):
+   
     @abstractmethod        
     def create_transport(self):
         """detta är en abstrackt metod som skaåar en transport"""

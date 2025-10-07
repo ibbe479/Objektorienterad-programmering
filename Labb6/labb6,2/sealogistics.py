@@ -1,9 +1,10 @@
 from logistick import Logistick
+from ship import Ship
 
-class sealogistics(Logistick):
-    def __init__(self, size, weight, destination, dock):
-        super().__init__(size, weight, destination)
-        self.dock = dock
+class Sealogistics(Logistick):
+   
+    def create_transport(self):
+        return Ship()
 
-    def create_transport():
-        pass
+
+    

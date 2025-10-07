@@ -1,9 +1,7 @@
 from logistick import Logistick
+from airplane import Airplane
 
 class Airlogistics(Logistick):
-    def __init__(self, size, weight, destination, airport):
-        super().__init__(size, weight, destination)
-        self.airpoert = airport
 
-    def create_transport():
-        pass
+    def create_transport(self):
+        return Airplane()

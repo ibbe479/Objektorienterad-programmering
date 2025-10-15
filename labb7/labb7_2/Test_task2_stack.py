@@ -32,14 +32,19 @@ class TestStack:
         Self.stk.push(3)
         assert Self.stk.size() == 2
 
-
+    
     def test_pop_emty(self):
         assert self.stk.pop() == 1
 
     def test_peeking(self):
         assert self.stk.top() == 1
     
-    
+    def test_multiple_push_pop(self):
+        for i in range(5):
+            self.stk.push(i)
+        for i in reversed(range(5)):
+            assert self.stk.pop() == i
+        assert self.stk.is_empty() == True
 
 if __name__ == "__main__":
     pytest.main(["-v"])

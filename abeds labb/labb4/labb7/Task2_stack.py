@@ -8,13 +8,13 @@ class Stack:
     def pop(self):
         if not self.is_empty():
             return self.items.pop()
-        return None
+        raise IndexError("empty stack")
 
     def top(self):
         if not self.is_empty():
             return self.items[-1]
-        return None
-
+        raise IndexError("empty stack")
+    
     def is_empty(self):
         return len(self.items) == 0
 

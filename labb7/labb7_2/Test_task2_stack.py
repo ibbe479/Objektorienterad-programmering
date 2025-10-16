@@ -18,13 +18,20 @@ class TestStack:
         self.stk.push(2)
         self.stk.push(3)
         assert self.stk.top() == 3
-        assert self.stk.size()==3
+        
 
     def test_pop(self):
         self.stk.push("b")
         self.stk.push("a")
         self.stk.push("v")
         assert self.stk.pop() == "v"
+
+    def test_pop2(self):    
+        self.stk.push("b")
+        self.stk.push("a")
+        self.stk.push("v")
+        self.stk.pop()
+        assert self.stk.pop() == "a"
         
 
     def test_siz(Self):

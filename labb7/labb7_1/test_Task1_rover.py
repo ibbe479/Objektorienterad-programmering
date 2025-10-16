@@ -32,18 +32,27 @@ class test_string(unittest.TestCase):
 
     def test_null_input(self):
         self.assertIsNone(self.rv.enrove(None))
+    
+    def test_null_input_derove(self):
         self.assertIsNone(self.rv.derove(None))
 
     def test_emty_string(self):
         self.assertEqual(self.rv.enrove(''), '')
-        self.assertEqual(self.rv.derove(" ")," ")
-
+    
+    def test_emppty_string_derove(self):
+        self.assertEqual(self.rv.derove(''), '')
 
     def test_low_case(self):
-        self.assertEqual(self.rv.enrove('bcdfhjklmnpqrstvwxz'), 'bobcocdodfofhohjojkoklolmomnonpopqoqrorsostotvovwowxoxzoz')
+        self.assertEqual(self.rv.enrove('bcdfghjklmnpqrstvwxz'), 'bobcocdodfofgoghohjojkoklolmomnonpopqoqrorsostotvovwowxoxzoz')
+
+    def test_derove_low(self):
+        self.assertEqual(self.rv.derove('bobcocdodfofgoghohjojkoklolmomnonpopqoqrorsostotvovwowxoxzoz'), 'bcdfghjklmnpqrstvwxz')
 
     def test_upper_c(self):
-        self.assertEqual(self.rv.enrove('BCDFHJJKLMNPQRSTVWXZ'), 'BOBCOCDODFOFHOHJOJJOJKOKLOLMOMNONPOPQOQRORSOSTOTVOVWOWXOXZOZ')
+        self.assertEqual(self.rv.enrove('BCDFGHJJKLMNPQRSTVWXZ'), 'BOBCOCDODFOFGOGHOHJOJJOJKOKLOLMOMNONPOPQOQRORSOSTOTVOVWOWXOXZOZ')
+
+    def test_derove_up(self):
+        self.assertEqual(self.rv.derove('BOBCOCDODFOFGOGHOHJOJJOJKOKLOLMOMNONPOPQOQRORSOSTOTVOVWOWXOXZOZ'), 'BCDFGHJJKLMNPQRSTVWXZ')
 
     def test_low_vol(self):
         self.assertEqual(self.rv.enrove('aeiouyåäö'), 'aeiouyåäö')

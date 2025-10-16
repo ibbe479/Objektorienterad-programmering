@@ -19,3 +19,9 @@ class Rental:
 
     def run(self) -> None:
         pass
+
+
+
+if __name__ == "__main__":
+    rental_system = Rental()
+    rental_system.run()

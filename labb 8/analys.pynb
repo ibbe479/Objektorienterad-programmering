@@ -143,7 +143,7 @@ def correlation_heatmap():
 #nulls()
 #descritive()
 #median_mean_mode()
-#plot_distribution()
+plot_distribution()
 #plot_bill_line()    
 #plot_bill_pie()
 #histogram_total_bill()
@@ -162,5 +162,5 @@ def correlation_heatmap():
 #advanced_plots()
 #advanced_plots2()
 #advanced_plots3()
-correlation_heatmap()
+#correlation_heatmap()
 

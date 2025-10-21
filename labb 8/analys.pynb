@@ -1,0 +1,166 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+dig = pd.read_csv('labb 8/dining.csv')
+def top_5():
+    print(dig.head(10))
+    print("\n****************************************************************************")
+    print(dig.tail(5))
+
+def info():
+    print(dig.info())
+
+def nulls():
+    #print(top5.isnull().sum())
+    print(dig.isna().sum())
+
+def descritive():
+    print(dig.describe())
+
+def median_mean_mode():
+    print( dig.median(numeric_only=True))
+    print( dig.mean(numeric_only=True))
+    print( dig.mode())
+
+def plot_distribution():
+    mean = dig['total_bill'].mean()
+    median = dig['total_bill'].median()
+    mode = dig['total_bill'].mode()
+    dig['total_bill'].plot(kind='kde')
+    plt.axvline(mean,color='r',label='mean')
+    plt.axvline(median,color='b',label='median')
+    plt.axvline(mode[0],color='g',label='mode')
+    plt.legend()
+    plt.show()
+
+def plot_bill_line():
+    dig['total_bill'].plot(kind='line')
+    plt.title('Total Bill Line Plot')
+    plt.xlabel('all bills')
+    plt.ylabel('bill amount')
+    plt.show()
+
+def plot_bill_pie():
+    daily_bills = dig.groupby('day')['total_bill'].sum()
+    explode = (0.1, 0, 0, 0)
+    daily_bills.plot(kind='pie', autopct='%1.2f%%',explode=explode)
+    plt.title('Total Bills Distribution by Day')
+    plt.show()
+
+def histogram_total_bill():
+    plt.hist(dig['tip'])
+    sns.histplot(dig, x="day", kde=True)
+    sns.histplot(dig, x="day", hue="sex")
+    sns.histplot(dig, x="day", hue="sex", multiple="dodge")
+    plt.title('Histogram of Total Bill')
+    plt.xlabel('Total Bill Amount')
+    plt.ylabel('Frequency')
+    plt.show()
+
+def plot_scatter_total_bill_vs_tip():
+    plt.scatter(dig['total_bill'], dig['tip'])
+    plt.title('Total Bill vs Tip Scatter Plot')
+    plt.xlabel('Total Bill Amount')
+    plt.ylabel('Tip Amount')
+    sns.scatterplot(data=dig, x='total_bill', y='tip', hue='time')
+    plt.show()
+
+def swarm_plot():
+    sns.swarmplot(x=dig["total_bill"])
+    plt.show()
+
+def grupby():
+    sns.swarmplot(x="day", y="total_bill", data=dig)
+    sns.catplot(x="day", y="total_bill", jitter=False, data=dig)
+    plt.show()
+
+def draw_horizontal_swarms():
+    sns.swarmplot(x="total_bill", y="day", data=dig)
+    plt.show()
+def draw_horizontal_swarms_color():
+    sns.swarmplot(x="day", y="total_bill", hue="sex", data=dig)
+    plt.show()
+
+def slipt():
+    sns.swarmplot(x="day", y="total_bill", hue="smoker", data=dig,
+    palette="Set2", dodge=True)
+    plt.show()
+
+def conttrol():
+    sns.swarmplot(x="time", y="total_bill", data=dig, order=["Dinner", "Lunch"])
+    sns.swarmplot(x="time", y="total_bill", data=dig, size=6)
+    plt.show()
+
+def box_plot():
+    sns.catplot(x="day", y="total_bill", kind="box", data=dig)
+    plt.show()
+
+def box_plot1():
+    dig.boxplot(by ='day', column =['total_bill'], color= 'black')
+    plt.show()
+
+def box_plot2():
+    sns.catplot(x="day", y="total_bill", hue="smoker", kind="box", data=dig)
+    plt.show()
+
+def box_plot3():
+    ax = sns.boxplot(x="total_bill", y="day", data=dig, whis=np.inf)
+    ax = sns.swarmplot(x="total_bill", y="day", data=dig, color=".2")
+    plt.show()
+
+def box_plot4():
+    sns.violinplot(x="day", y="total_bill", data=dig, inner=None)
+    sns.swarmplot(x="day", y="total_bill", data=dig, color="white",
+    edgecolor="gray")
+    plt.show()
+
+def advanced_plots():
+    g = sns.catplot(x="sex", y="total_bill",hue="smoker", col="time",data=dig, kind="swarm",height=4, aspect=.7)
+    plt.show()
+
+def advanced_plots2():
+    sns.scatterplot(
+        data=dig, x="total_bill", y="tip", hue="size", size="size",
+        sizes=(20, 200), legend="full")
+    plt.show()
+
+def advanced_plots3():
+    sns.violinplot(dig['total_bill'],color='Yellow')
+    plt.show()
+
+def correlation_heatmap():
+    numeric_df = dig.select_dtypes(include=['float64', 'int64'])
+    sns.heatmap(numeric_df.corr(),annot=True)
+    plt.figure(figsize=(5,5))
+
+    plt.show()
+
+#top_5()
+#info()
+#nulls()
+#descritive()
+#median_mean_mode()
+#plot_distribution()
+#plot_bill_line()    
+#plot_bill_pie()
+#histogram_total_bill()
+#plot_scatter_total_bill_vs_tip()
+#swarm_plot()
+#grupby()
+#draw_horizontal_swarms()
+#draw_horizontal_swarms_color()
+#slipt()
+#conttrol()
+#box_plot()
+#box_plot1()
+#box_plot2()
+#box_plot3()
+#box_plot4()
+#advanced_plots()
+#advanced_plots2()
+#advanced_plots3()
+correlation_heatmap()
+

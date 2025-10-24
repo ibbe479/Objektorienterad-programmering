@@ -49,7 +49,7 @@ class Cargogo():
 
     
 
-    def search_vehicle(self, reg_nmr: str) -> Vehicle | None:
+    def search_vehicle(self, reg_nmr: str) -> Vehicle:
         for bil in self.__vehicles:
             if bil.get_reg_nmr().lower() == reg_nmr:
                 return bil
